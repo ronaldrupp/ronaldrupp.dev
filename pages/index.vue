@@ -1,5 +1,5 @@
 <template>
-  <Tutorial />
+  <IndexHero />
 </template>
 
 <script lang="ts">
