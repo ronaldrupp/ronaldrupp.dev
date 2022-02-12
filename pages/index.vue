@@ -1,5 +1,8 @@
 <template>
-  <IndexHero />
+  <div>
+    <Navigation />
+    <IndexHero />
+  </div>
 </template>
 
 <script lang="ts">
