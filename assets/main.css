@@ -157,6 +157,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -195,6 +196,13 @@ table {
   border-spacing: 0;
 }
 
+:root {
+  --main-background-color: black;
+  --main-font-color: white;
+  --main-max-width: 1200px;
+}
 body {
   font-family: 'Inter';
+  background-color: var(--main-background-color);
+  color: var(--main-font-color);
 }
