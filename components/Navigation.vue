@@ -70,6 +70,9 @@ export default Vue.extend({
   width: 100%;
   max-width: var(--main-max-width);
   margin: 0 auto;
+  @media only screen and (max-width: 768px){
+   padding: 1rem;
+  }
 }
 .menu-center {
   display: grid;
@@ -139,6 +142,9 @@ export default Vue.extend({
   padding: 1.75em 0;
   span {
     font-size: 2rem;
+  }
+  @media only screen and (max-width: 768px){
+    grid-template-columns: 1fr;
   }
 }
 
