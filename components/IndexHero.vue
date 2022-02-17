@@ -1,8 +1,10 @@
 <template>
   <div class="container">
-    <h1 class="main-title">Website Title</h1>
-    <video class="video" autoplay muted loop>
-      <source src="" type="mp4/video" />
+    <div class="main-title">
+      Portfolio <span class="main-title-thin">Ronald Rupp</span>
+    </div>
+    <video class="video" autoplay muted loop playsinline>
+      <source src="~/assets/hero-v0.mp4" type="video/mp4" />
     </video>
   </div>
 </template>
@@ -26,10 +28,20 @@ export default Vue.extend({
   font-weight: 900;
   text-transform: uppercase;
   font-size: 4rem;
+  padding: 2.5em 1em;
+  text-align: center;
+  @media only screen and (max-width: 768px){
+    font-size: 3rem;
+  }
+}
+.main-title-thin {
+  font-weight: 100;
 }
 .video {
   width: 100%;
-  max-width: var(--main-max-width);
+  /* max-width: var(--main-max-width); */
   background-color: rgb(63, 63, 63);
+  height: 600px;
+  object-fit: cover;
 }
 </style>

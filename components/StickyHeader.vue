@@ -1,0 +1,49 @@
+<template>
+  <div class="container">
+    <div class="inner-container">
+      <h1>{{ title }}</h1>
+      <div>
+        <slot name="actions"></slot>
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: {
+      type: String,
+      default: 'No title set',
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.nav-placeholder {
+  height: 50px;
+}
+.container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: saturate(180%) blur(20px);
+  transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
+    -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  h1 {
+    font-weight: 600;
+  }
+  .inner-container {
+    max-width: var(--main-max-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    margin: 0 auto;
+
+    color: white;
+  }
+}
+</style>

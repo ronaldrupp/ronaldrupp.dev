@@ -1,10 +1,9 @@
 <template>
-  <div class="container">
+  <div :class="classObject">
     <div class="inner-container">
-      <div></div>
-      <div class="menu-center"><h1>Ronald Rupp</h1></div>
+      <NuxtLink to="/" class="back-to-index">Ronald Rupp</NuxtLink>
       <div class="menu-right">
-        <button @click="toggleDetailedMenu" class="btn-menu">Menu</button>
+        <button @click="toggleDetailedMenu" class="btn-menu">Menü</button>
       </div>
     </div>
     <Transition name="slide">
@@ -12,21 +11,31 @@
         <div class="detailed-menu-inner-container">
           <div class="detailed-menu-header">
             <NuxtLink to="/" class="nav-link">Ronald Rupp</NuxtLink>
-            <button @click="toggleDetailedMenu">Close Menu</button>
+            <button @click="toggleDetailedMenu">Menü schließen</button>
           </div>
           <div class="clients-container">
-            <span>Clients</span>
+            <span>Projekte</span>
             <div class="clients">
-              <NuxtLink to="/client/colinhadler" class="nav-link client-link">
-                <span>Colin Hadler</span>
-                <div class="shadow"></div>
-                <img src="~/assets/colin-hadler.jpeg" class="background-img" />
-              </NuxtLink>
-              <NuxtLink to="/client/wat16" class="nav-link client-link">
-                <span>WAT16</span>
-                <div class="shadow"></div>
-                <img src="~/assets/wat16.webp" class="background-img" />
-              </NuxtLink>
+              <navigation-project-card
+                linkTo="/projects/colin-hadler"
+                :backgroundImageSrc="require('~/assets/colin-hadler.jpeg')"
+                :backgroundVideoSrc="require('~/assets/hero-v0.mp4')"
+                title="Colin Hadler"
+              />
+              <navigation-project-card
+                linkTo="/projects/ahw-display"
+                :backgroundImageSrc="require('~/assets/ahw-display-nav.png')"
+                :backgroundVideoSrc="
+                  require('~/assets/ahw-display-nav-video.mp4')
+                "
+                title="AHW Display"
+              />
+              <navigation-project-card
+                linkTo="/projects/wat16"
+                :backgroundImageSrc="require('~/assets/wat16.webp')"
+                :backgroundVideoSrc="require('~/assets/wat16-highlight.mp4')"
+                title="WAT16"
+              />
             </div>
           </div>
         </div>
@@ -35,24 +44,62 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
+import NavigationProjectCard from './NavigationProjectCard.vue'
 
 export default Vue.extend({
+  components: { NavigationProjectCard },
   name: 'Navigation',
   data() {
     return {
       isShowing: false,
+      y: 0,
+      isScrollingToTop: false,
     }
+  },
+  watch: {
+    $route() {
+      this.isShowing = false
+      document.body.style.overflowY = ''
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  computed: {
+    classObject() {
+      return {
+        container: true,
+        // scrolling: this.y >= 75,
+        // moveToTop: this.isScrollingToTop,
+      }
+    },
   },
   methods: {
     toggleDetailedMenu() {
-      if (document.body.style.overflowY == 'hidden')
+      if (this.isShowing) {
         document.body.style.overflowY = ''
-      else {
+        this.isShowing = false
+      } else {
         document.body.style.overflowY = 'hidden'
+        this.isShowing = true
       }
-      this.isShowing = !this.isShowing
+    },
+    handleScroll() {
+      if (this.y < window.scrollY) this.isScrollingToTop = true
+      else this.isScrollingToTop = false
+
+      this.y = window.scrollY
+    },
+    playVideo() {
+      this.$refs.videoPlayPreview.currentTime = 0
+      this.$refs.videoPlayPreview.play()
+      this.$refs.videoPlayPreview.style.opacity = 1
+    },
+    stopVideo() {
+      this.$refs.videoPlayPreview.pause()
+      this.$refs.videoPlayPreview.style.opacity = 0
     },
   },
 })
@@ -61,23 +108,62 @@ export default Vue.extend({
 <style scoped lang="scss">
 .container {
   width: 100%;
-  padding: 75px 0;
+  padding: 1em 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
+    -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
-
+.scrolling {
+  padding: 1rem 0;
+}
+.moveToTop {
+  transform: translateY(-100%);
+}
+.back-to-index {
+  color: var(--font-color);
+  text-decoration: none;
+  position: relative;
+  font-weight: 600;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transform: scaleX(0);
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
+      -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    transform-origin: left center;
+  }
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+.nuxt-link-exact-active::after {
+  transform: scaleX(1);
+}
 .inner-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: var(--main-max-width);
   margin: 0 auto;
-  @media only screen and (max-width: 768px){
-   padding: 1rem;
-  }
+  padding: 0 1rem;
 }
 .menu-center {
   display: grid;
   place-items: center;
-  h1{
+  h1 {
     font-weight: 600;
     text-align: center;
   }
@@ -87,11 +173,31 @@ export default Vue.extend({
   place-items: right;
 }
 .btn-menu {
+  padding: 0;
   background-color: transparent;
   border: none;
   color: white;
   font-size: 1rem;
+  position: relative;
   cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    transform: scaleX(0);
+    transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
+      -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+    transform-origin: right center;
+  }
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+  }
 }
 
 .detailed-menu {
@@ -100,6 +206,8 @@ export default Vue.extend({
   z-index: 2;
   background-color: var(--main-background-color);
   overflow-y: auto;
+  width: 100%;
+  height: 100vh;
 }
 
 .slide-enter-active,
@@ -119,7 +227,7 @@ export default Vue.extend({
   width: 100%;
   max-width: var(--main-max-width);
   margin: 0 auto;
-  padding-top: 75px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -138,18 +246,20 @@ export default Vue.extend({
 .clients-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
   width: 100%;
   padding: 1.75em 0;
   span {
     font-size: 2rem;
   }
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 }
 
 .clients {
   display: flex;
+  gap: 1.5em;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -158,7 +268,6 @@ export default Vue.extend({
 .client-link {
   background-color: rgb(54, 54, 54);
   width: 100%;
-  margin: 0.5em 0;
   padding: 0.5em;
   height: 150px;
   display: flex;
@@ -166,7 +275,7 @@ export default Vue.extend({
   justify-content: flex-start;
   position: relative;
   span {
-    z-index: 2;
+    z-index: 3;
   }
   .background-img {
     width: 100%;
@@ -181,8 +290,18 @@ export default Vue.extend({
     height: 100%;
     position: absolute;
     inset: 0;
+    z-index: 2;
+    background: linear-gradient(-90deg, transparent, rgba(0, 0, 0, 0.5));
+  }
+  .preview-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
     z-index: 1;
-    background: linear-gradient(-90deg, transparent, rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    transition: 1s;
   }
 }
 .detailed-menu-header {
@@ -191,7 +310,6 @@ export default Vue.extend({
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgb(48, 48, 48);
-  padding: 1em 0;
   button {
     border: none;
     background: transparent;

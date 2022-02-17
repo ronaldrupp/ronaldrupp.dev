@@ -1,6 +1,8 @@
 <template>
   <div>
-    <IndexHero />
+    <index-hero />
+    <index-centered-text />
+    <index-projects />
   </div>
 </template>
 
@@ -9,5 +11,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'IndexPage',
+  scrollToTop: true,
+  head: {
+    title: 'Ronald Rupp',
+  },
 })
 </script>

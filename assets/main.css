@@ -200,9 +200,41 @@ table {
   --main-background-color: black;
   --main-font-color: white;
   --main-max-width: 1200px;
+  --nav-height: 168px;
 }
 body {
   font-family: 'Inter';
   background-color: var(--main-background-color);
   color: var(--main-font-color);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 1.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+.website-link {
+  /* border: 1px solid white; */
+  background-color: rgb(10, 122, 255);
+  padding: 0.5em 0.75em;
+  border-radius: 0.5em;
+  font-size: 0.8rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav-placeholder {
+  height: 50px;
+}
+
+.internal-app {
+  background-color: transparent;
+  border: 1px solid rgb(255, 159, 10);
+  color: rgb(255, 159, 10);
+  cursor: not-allowed;
 }
