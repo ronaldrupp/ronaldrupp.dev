@@ -18,7 +18,18 @@
         <p class="hero-subtitle">
           Wiener Arbeiter Turn- und Sportverein Ottakring
         </p>
-        <img src="~/assets/colin-hadler-home-hero-ui.png" />
+        <img src="~/assets/wat16.at_(Surface Pro 7).png" />
+      </div>
+      <div class="centered-container">
+        <img src="~/assets/wat16-mitgliedschaften.png" />
+      </div>
+      <div class="centered-container">
+        <img src="~/assets/wat16.at_(Surface Pro 7) (2).png" />
+      </div>
+      <div class="mobile-screenshots">
+        <img src="~/assets/wat16.at_(iPhone 12 Pro) (2).png" />
+        <img src="~/assets/wat16.at_(iPhone 12 Pro) (1).png" />
+        <img src="~/assets/wat16.at_(iPhone 12 Pro).png" />
       </div>
     </main>
     <tech-details :content="techDetails"> </tech-details>
@@ -75,5 +86,15 @@ img {
   max-width: var(--main-max-width);
   width: 100%;
   padding: 4em 1em;
+}
+.mobile-screenshots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: var(--main-max-width);
+  margin: 0 auto;
+}
+.centered-container {
+  max-width: var(--main-max-width);
+  margin: 0 auto;
 }
 </style>
