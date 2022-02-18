@@ -1,7 +1,6 @@
 <template>
   <div>
     <index-hero />
-    <index-centered-text />
     <index-projects />
   </div>
 </template>

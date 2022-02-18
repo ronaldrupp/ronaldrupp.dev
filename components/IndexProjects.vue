@@ -1,10 +1,24 @@
 <template>
   <div class="container">
-    <span>Projects</span>
     <div class="projects">
-    <project-card linkTo="/projects/colin-hadler" />
-    <project-card />
-    <project-card />
+      <project-card
+        linkTo="/projects/colin-hadler"
+        title="Colin Hadler"
+        :videoSrc="require('~/assets/hero-v0.mp4')"
+        description="Jugendbuchautor aus Österreich"
+      />
+      <project-card
+        linkTo="/projects/ahw-display"
+        title="AHW Display"
+        :videoSrc="require('~/assets/ahw-display-nav-video.mp4')"
+        description=" Infoscreen für Klient:innen im Haus der Aids Hilfe Wien."
+      />
+      <project-card
+        linkTo="/projects/wat16"
+        title="WAT16"
+        :videoSrc="require('~/assets/wat16-highlight.mp4')"
+        description="Wiener Arbeiter Turn- und Sportverein Ottakring"
+      />
     </div>
   </div>
 </template>
@@ -17,11 +31,6 @@ export default Vue.extend({})
 
 <style scoped lang="scss">
 .projects {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(400px, 1fr));
-  grid-auto-rows: 400px;
-  grid-gap: 1rem;
   width: 100%;
-  padding: 0 1em;
 }
 </style>

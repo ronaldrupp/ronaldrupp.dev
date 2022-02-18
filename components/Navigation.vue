@@ -10,7 +10,7 @@
       <div v-if="isShowing" class="detailed-menu">
         <div class="detailed-menu-inner-container">
           <div class="detailed-menu-header">
-            <NuxtLink to="/" class="nav-link">Ronald Rupp</NuxtLink>
+            <NuxtLink to="/" class="nav-link overlay">Ronald Rupp</NuxtLink>
             <button @click="toggleDetailedMenu">Menü schließen</button>
           </div>
           <div class="clients-container">
@@ -242,7 +242,11 @@ export default Vue.extend({
   padding: 1rem 0;
   font-weight: 800;
 }
-
+.overlay {
+  @media only screen and (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+}
 .clients-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -251,6 +255,9 @@ export default Vue.extend({
   padding: 1.75em 0;
   span {
     font-size: 2rem;
+    @media only screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
   @media only screen and (max-width: 768px) {
     grid-template-columns: 1fr;

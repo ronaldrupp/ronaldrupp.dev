@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="linkTo"
-    class="nav-link client-link"
+    class="nav-link client-link overlay"
     @mouseenter.native="playVideo"
     @mouseleave.native="stopVideo"
   >
