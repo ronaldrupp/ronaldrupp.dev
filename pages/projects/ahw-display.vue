@@ -22,10 +22,20 @@
           playsinline
         />
       </div>
-      <img src="~/assets/ahw-display-openning-hours-ui.png" />
-      <img src="~/assets/ahw-display-video-content-ui.png" />
-      <img src="~/assets/ahw-display-fullscreen-overlay-ui.png" />
+      <div class="centered-container">
+        <img src="~/assets/ahw-display-select-mode.png" />
+      </div>
+      <div class="centered-container">
+        <img src="~/assets/ahw-display-openning-hours-ui.png" />
+      </div>
+      <div class="centered-container">
+        <img src="~/assets/ahw-display-video-content-ui.png" />
+      </div>
+      <div class="centered-container">
+        <img src="~/assets/ahw-display-fullscreen-overlay-ui.png" />
+      </div>
     </main>
+
     <tech-details :content="techDetails"> </tech-details>
   </div>
 </template>
@@ -33,7 +43,7 @@
 <script>
 export default {
   scrollToTop: true,
-   head: {
+  head: {
     title: 'AHW Display - Ronald Rupp',
   },
   data() {
@@ -60,6 +70,10 @@ export default {
   img {
     width: 100%;
   }
+}
+.centered-container {
+  max-width: var(--main-max-width);
+  margin: 0 auto;
 }
 .main-container {
   background-color: #fff5da;
@@ -90,5 +104,10 @@ export default {
   max-width: var(--main-max-width);
   margin: 5em auto;
   padding: 0 1em;
+}
+img {
+  max-width: var(--main-max-width);
+  width: 100%;
+  padding: 4em 1em;
 }
 </style>

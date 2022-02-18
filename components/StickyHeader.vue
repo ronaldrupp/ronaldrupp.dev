@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="inner-container">
-      <h1>{{ title }}</h1>
+      <h1 @click="scrollToTop">{{ title }}</h1>
       <div>
         <slot name="actions"></slot>
-        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -15,6 +15,11 @@ export default {
     title: {
       type: String,
       default: 'No title set',
+    },
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0)
     },
   },
 }
@@ -34,6 +39,7 @@ export default {
     -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   h1 {
     font-weight: 600;
+    cursor: pointer;
   }
   .inner-container {
     max-width: var(--main-max-width);

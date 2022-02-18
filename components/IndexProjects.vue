@@ -11,7 +11,7 @@
         linkTo="/projects/ahw-display"
         title="AHW Display"
         :videoSrc="require('~/assets/ahw-display-nav-video.mp4')"
-        description=" Infoscreen für Klient:innen im Haus der Aids Hilfe Wien."
+        description="Infoscreen für Klient:innen im Haus der Aids Hilfe Wien."
       />
       <project-card
         linkTo="/projects/wat16"
