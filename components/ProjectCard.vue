@@ -6,7 +6,7 @@
         <p class="paragraph">{{ description }}</p>
       </div>
     </div>
-    <video class="background-video" loop muted playsinline>
+    <video class="background-video" autoplay loop muted playsinline>
       <source :src="videoSrc" type="video/mp4" />
     </video>
   </div>
