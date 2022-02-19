@@ -18,7 +18,7 @@ export default Vue.extend({})
   align-items: center;
 }
 .back-to-index {
-  color: var(--font-color);
+  color: var(--gray-100);
   text-decoration: none;
   position: relative;
   font-weight: 600;
@@ -26,7 +26,7 @@ export default Vue.extend({})
     content: '';
     position: absolute;
     height: 1px;
-    background-color: white;
+    background-color: var(--gray-100);
     bottom: 0;
     left: 0;
     width: 100%;

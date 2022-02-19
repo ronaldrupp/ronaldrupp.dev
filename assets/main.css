@@ -199,6 +199,7 @@ table {
 :root {
   --main-background-color: black;
   --main-font-color: white;
+  --gray-100: rgb(100,100,100);
   --main-max-width: 1200px;
   --nav-height: 168px;
 }
