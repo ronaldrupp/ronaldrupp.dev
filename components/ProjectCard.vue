@@ -61,7 +61,7 @@ export default Vue.extend({
     transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
       -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   }
-  &:hover {
+  &:hover, &:active {
     &::after {
       transform: translateX(0%);
       opacity: 1;
