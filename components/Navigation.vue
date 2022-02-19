@@ -71,6 +71,7 @@ export default Vue.extend({
     classObject() {
       return {
         container: true,
+        fixed: this.$route.path === '/',
         // scrolling: this.y >= 75,
         // moveToTop: this.isScrollingToTop,
       }
@@ -118,6 +119,9 @@ export default Vue.extend({
   backdrop-filter: blur(10px);
   transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
     -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+}
+.fixed {
+  position: fixed;
 }
 .scrolling {
   padding: 1rem 0;

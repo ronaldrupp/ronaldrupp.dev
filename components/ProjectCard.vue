@@ -1,21 +1,25 @@
 <template>
-  <div class="container">
+  <div class="container" @mouseenter="playVideo" @mouseleave="stopVideo">
     <div class="overlay">
       <div class="inner-overlay">
         <nuxt-link :to="linkTo" class="title">{{ title }}</nuxt-link>
         <p class="paragraph">{{ description }}</p>
       </div>
     </div>
-    <video class="background-video" autoplay loop muted playsinline>
+    <video
+      class="background-video"
+      ref="videoPlayPreview"
+      loop
+      muted
+      playsinline
+    >
       <source :src="videoSrc" type="video/mp4" />
     </video>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
+<script>
+export default {
   props: {
     linkTo: {
       type: String,
@@ -25,7 +29,20 @@ export default Vue.extend({
     videoSrc: String,
     description: String,
   },
-})
+  methods: {
+    playVideo() {
+      if (this.$refs.videoPlayPreview) {
+        this.$refs.videoPlayPreview.currentTime = 0
+        this.$refs.videoPlayPreview.play()
+      }
+    },
+    stopVideo() {
+      if (this.$refs.videoPlayPreview) {
+        this.$refs.videoPlayPreview.pause()
+      }
+    },
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -61,7 +78,8 @@ export default Vue.extend({
     transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
       -webkit-transform 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   }
-  &:hover, &:active {
+  &:hover,
+  &:active {
     &::after {
       transform: translateX(0%);
       opacity: 1;
