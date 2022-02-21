@@ -1,5 +1,5 @@
 <template>
-  <div class="container"><nuxt-link to="/" class="back-to-index">Ronald Rupp</nuxt-link></div>
+  <footer class="container"><nuxt-link to="/" class="back-to-index">Ronald Rupp</nuxt-link></footer>
 </template>
 
 <script lang="ts">

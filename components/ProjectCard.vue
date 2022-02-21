@@ -1,8 +1,10 @@
 <template>
-  <div class="container" @mouseenter="playVideo" @mouseleave="stopVideo">
+  <li class="container" @mouseenter="playVideo" @mouseleave="stopVideo">
     <div class="overlay">
       <div class="inner-overlay">
-        <nuxt-link :to="linkTo" class="title">{{ title }}</nuxt-link>
+        <nuxt-link :to="linkTo" class="title">
+          <h2>{{ title }}</h2>
+        </nuxt-link>
         <p class="paragraph">{{ description }}</p>
       </div>
     </div>
@@ -15,7 +17,7 @@
     >
       <source :src="videoSrc" type="video/mp4" />
     </video>
-  </div>
+  </li>
 </template>
 
 <script>

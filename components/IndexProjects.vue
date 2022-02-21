@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="projects">
+  <section class="container">
+    <ul class="projects">
       <project-card
         linkTo="/projects/colin-hadler"
         title="Colin Hadler"
@@ -19,8 +19,8 @@
         :videoSrc="require('~/assets/wat16-highlight.mp4')"
         description="Wiener Arbeiter Turn- und Sportverein Ottakring"
       />
-    </div>
-  </div>
+    </ul>
+  </section>
 </template>
 
 <script lang="ts">

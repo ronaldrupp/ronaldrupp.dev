@@ -34,13 +34,14 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 2em 0;
+  border-top: 1px solid rgb(139, 139, 139);
+
   h6 {
     font-weight: 600;
     font-size: 1.5rem;
   }
-  &:not(:first-child):not(:last-child) {
-    border-top: 1px solid rgb(139, 139, 139);
+  /* &:not(:first-child):not(:last-child) {
     border-bottom: 1px solid rgb(139, 139, 139);
-  }
+  } */
 }
 </style>

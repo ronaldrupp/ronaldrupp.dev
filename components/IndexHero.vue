@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
-    <div class="main-title">
+  <section class="container">
+    <h1 class="main-title">
       Portfolio <span class="main-title-thin">Ronald Rupp</span>
-    </div>
+    </h1>
     <video class="video" autoplay muted loop playsinline>
       <source src="~/assets/hero-v0.mp4" type="video/mp4" />
     </video>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">

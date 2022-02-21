@@ -1,17 +1,25 @@
 <template>
-  <NuxtLink
-    :to="linkTo"
-    class="nav-link client-link overlay"
-    @mouseenter.native="playVideo"
-    @mouseleave.native="stopVideo"
-  >
-    <span>{{ title }}</span>
-    <div class="shadow"></div>
-    <video class="preview-video" muted playsinline loop ref="videoPlayPreview">
-      <source :src="`${backgroundVideoSrc}`" type="video/mp4" />
-    </video>
-    <img :src="`${backgroundImageSrc}`" class="background-img" />
-  </NuxtLink>
+  <li>
+    <NuxtLink
+      :to="linkTo"
+      class="nav-link client-link overlay"
+      @mouseenter.native="playVideo"
+      @mouseleave.native="stopVideo"
+    >
+      <span>{{ title }}</span>
+      <div class="shadow"></div>
+      <video
+        class="preview-video"
+        muted
+        playsinline
+        loop
+        ref="videoPlayPreview"
+      >
+        <source :src="`${backgroundVideoSrc}`" type="video/mp4" />
+      </video>
+      <img :src="`${backgroundImageSrc}`" class="background-img" />
+    </NuxtLink>
+  </li>
 </template>
 
 <script>
@@ -47,6 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+li {
+  width: 100%;
+}
 .nav-link {
   font-size: 2rem;
   color: white;

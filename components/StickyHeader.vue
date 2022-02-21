@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <nav class="container">
     <div class="inner-container">
       <h1 @click="scrollToTop">{{ title }}</h1>
       <div>
         <slot name="actions"></slot>
       </div>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -26,11 +26,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-placeholder {
-  height: 50px;
-}
 .container {
+  height: 50px;
   position: sticky;
+  z-index: 9998;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
@@ -48,8 +47,8 @@ export default {
     align-items: center;
     padding: 1em;
     margin: 0 auto;
-
     color: white;
+    height: 100%;
   }
 }
 </style>

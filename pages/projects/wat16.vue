@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="nav-placeholder"></div>
     <sticky-header title="WAT16">
       <template v-slot:actions>
         <a

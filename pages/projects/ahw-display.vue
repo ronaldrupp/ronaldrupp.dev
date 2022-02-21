@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="nav-placeholder"></div>
     <sticky-header title="AHW Display">
       <template v-slot:actions>
         <a class="website-link internal-app">Interne App</a>
@@ -78,9 +77,6 @@ export default {
 .main-container {
   background-color: #fff5da;
   color: black;
-}
-.nav-placeholder {
-  height: 50px;
 }
 .hero {
   display: flex;

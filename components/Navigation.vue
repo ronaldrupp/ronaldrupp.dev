@@ -1,5 +1,5 @@
 <template>
-  <div :class="classObject">
+  <nav :class="classObject">
     <div class="inner-container">
       <NuxtLink to="/" class="back-to-index">Ronald Rupp</NuxtLink>
       <div class="menu-right">
@@ -15,7 +15,7 @@
           </div>
           <div class="clients-container">
             <span>Projekte</span>
-            <div class="clients">
+            <ul class="clients">
               <navigation-project-card
                 linkTo="/projects/colin-hadler"
                 :backgroundImageSrc="require('~/assets/colin-hadler.jpeg')"
@@ -36,12 +36,12 @@
                 :backgroundVideoSrc="require('~/assets/wat16-highlight.mp4')"
                 title="WAT16"
               />
-            </div>
+            </ul>
           </div>
         </div>
       </div>
     </Transition>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -110,10 +110,6 @@ export default Vue.extend({
 .container {
   width: 100%;
   padding: 1em 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
@@ -122,6 +118,9 @@ export default Vue.extend({
 }
 .fixed {
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 .scrolling {
   padding: 1rem 0;
@@ -207,7 +206,7 @@ export default Vue.extend({
 .detailed-menu {
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 9999;
   background-color: var(--main-background-color);
   overflow-y: auto;
   width: 100%;
@@ -231,7 +230,6 @@ export default Vue.extend({
   width: 100%;
   max-width: var(--main-max-width);
   margin: 0 auto;
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

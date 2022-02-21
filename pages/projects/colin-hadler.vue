@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="nav-placeholder"></div>
     <sticky-header title="Colin Hadler">
       <template v-slot:actions>
         <a
@@ -69,10 +68,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-/* main {
-  margin-top: var(--nav-height);
-} */
-.centered-container{
+.centered-container {
   max-width: var(--main-max-width);
   margin: 0 auto;
 }
