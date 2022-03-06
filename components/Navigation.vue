@@ -6,41 +6,43 @@
         <button @click="toggleDetailedMenu" class="btn-menu">Menü</button>
       </div>
     </div>
-    <Transition name="slide">
-      <div v-if="isShowing" class="detailed-menu">
-        <div class="detailed-menu-inner-container">
-          <div class="detailed-menu-header">
-            <NuxtLink to="/" class="nav-link overlay">Ronald Rupp</NuxtLink>
-            <button @click="toggleDetailedMenu">Menü schließen</button>
-          </div>
-          <div class="clients-container">
-            <span>Projekte</span>
-            <ul class="clients">
-              <navigation-project-card
-                linkTo="/projects/colin-hadler"
-                :backgroundImageSrc="require('~/assets/colin-hadler.jpeg')"
-                :backgroundVideoSrc="require('~/assets/hero-v0.mp4')"
-                title="Colin Hadler"
-              />
-              <navigation-project-card
-                linkTo="/projects/ahw-display"
-                :backgroundImageSrc="require('~/assets/ahw-display-nav.png')"
-                :backgroundVideoSrc="
-                  require('~/assets/ahw-display-nav-video.mp4')
-                "
-                title="AHW Display"
-              />
-              <navigation-project-card
-                linkTo="/projects/wat16"
-                :backgroundImageSrc="require('~/assets/wat16.webp')"
-                :backgroundVideoSrc="require('~/assets/wat16-highlight.mp4')"
-                title="WAT16"
-              />
-            </ul>
+    <portal to="overlay">
+      <Transition name="slide">
+        <div v-if="isShowing" class="detailed-menu">
+          <div class="detailed-menu-inner-container">
+            <div class="detailed-menu-header">
+              <NuxtLink to="/" class="nav-link overlay">Ronald Rupp</NuxtLink>
+              <button @click="toggleDetailedMenu">Menü schließen</button>
+            </div>
+            <div class="clients-container">
+              <span>Projekte</span>
+              <ul class="clients">
+                <navigation-project-card
+                  linkTo="/projects/colin-hadler"
+                  :backgroundImageSrc="require('~/assets/colin-hadler.jpeg')"
+                  :backgroundVideoSrc="require('~/assets/hero-v0.mp4')"
+                  title="Colin Hadler"
+                />
+                <navigation-project-card
+                  linkTo="/projects/ahw-display"
+                  :backgroundImageSrc="require('~/assets/ahw-display-nav.png')"
+                  :backgroundVideoSrc="
+                    require('~/assets/ahw-display-nav-video.mp4')
+                  "
+                  title="AHW Display"
+                />
+                <navigation-project-card
+                  linkTo="/projects/wat16"
+                  :backgroundImageSrc="require('~/assets/wat16.webp')"
+                  :backgroundVideoSrc="require('~/assets/wat16-highlight.mp4')"
+                  title="WAT16"
+                />
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </Transition>
+      </Transition>
+    </portal>
   </nav>
 </template>
 

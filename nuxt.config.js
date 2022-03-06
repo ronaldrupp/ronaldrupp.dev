@@ -33,7 +33,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', 'portal-vue/nuxt'],
   i18n: {
     locales: ['en', 'de'],
     defaultLocale: 'en',

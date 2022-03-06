@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <sticky-header title="WAT16">
       <template v-slot:actions>
         <a
@@ -22,6 +22,7 @@
       <div class="centered-container">
         <img src="~/assets/wat16-mitgliedschaften.png" />
       </div>
+
       <div class="centered-container">
         <img src="~/assets/wat16.at_(Surface Pro 7) (2).png" />
       </div>

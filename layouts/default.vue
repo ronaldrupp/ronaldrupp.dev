@@ -1,5 +1,6 @@
 <template>
   <div>
+    <portal-target name="overlay"> </portal-target>
     <Navigation></Navigation>
     <transition name="page">
       <Nuxt />
