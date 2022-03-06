@@ -61,4 +61,11 @@ export default {
   server: {
     host: '0', // default: localhost
   },
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style', 'font'].includes(type)
+      },
+    },
+  },
 }
