@@ -29,6 +29,8 @@ export default {
 .container {
   width: 100%;
   height: 50px;
+  position: sticky;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: saturate(180%) blur(20px);
   transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s,
