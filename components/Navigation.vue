@@ -217,7 +217,7 @@ export default Vue.extend({
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0s;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0s;
   opacity: 1;
   transform: scale(1);
 }
