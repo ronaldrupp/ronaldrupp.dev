@@ -6,6 +6,7 @@
     </section>
     <div class="other-links">
       <a href="https://www.linkedin.com/in/ronaldrupp">LinkedIn</a>
+      <a href="https://github.com/ronrupp">GitHub</a>
       <a href="mailto:ronald.rupp@outlook.at">E-Mail</a>
     </div>
   </footer>
