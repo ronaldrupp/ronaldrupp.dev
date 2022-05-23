@@ -1,5 +1,5 @@
 <template>
-  <li class="container" @mouseenter="playVideo" @mouseleave="stopVideo">
+  <li class="container" ref="container">
     <div class="overlay">
       <div class="inner-overlay">
         <nuxt-link :to="linkTo" class="title">
@@ -22,6 +22,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isVisible: false,
+    }
+  },
   props: {
     linkTo: {
       type: String,
@@ -31,7 +36,29 @@ export default {
     videoSrc: String,
     description: String,
   },
+  watch: {
+    isVisible() {
+      console.log(this.isVisible)
+    },
+  },
+  mounted() {
+    const observer = new IntersectionObserver(this.callbackFunction, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5,
+    })
+    if (this.$refs.container) observer.observe(this.$refs.container)
+  },
   methods: {
+    callbackFunction(entries) {
+      const [entry] = entries
+      this.isVisible = entry.isIntersecting
+      if (entry.isIntersecting) {
+        this.playVideo()
+      } else {
+        this.stopVideo()
+      }
+    },
     playVideo() {
       if (this.$refs.videoPlayPreview) {
         this.$refs.videoPlayPreview.currentTime = 0
